@@ -8,7 +8,7 @@ namespace RPG_warrior_expanded
 {
     public abstract class Hero
     {
-        protected static readonly string[] Names = { "El Waflo", "Lord Michael", "Drum The Strong", "Gocha The Wise", "Olga The Summoner", "Mefeeer The Honest", "King Hosuqa I", "Sir Radoslaw", "Great Knight Minio999", "Princess Zoozee", "Royal Prince Wilson" };
+        protected static readonly string[] Names = { "El Roman", "Lord Michael", "Ignatius The Strong", "Gretel The Wise", "Jacob The Summoner", "Matthew The Honest", "King Arthur I", "Sir Christopher ", "Great Knight Robin", "Princess Zoozee", "Royal Prince Wilson" };
         protected string name;
         protected int health;
         protected int strength;
