@@ -43,11 +43,16 @@ namespace RPG_warrior_expanded
             {
                 opponent.health = 0;
             }
-            //Thread.Sleep(700);
+            Thread.Sleep(700);
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.Write($"Warrior {name} attacks for ");
             Console.ForegroundColor = ConsoleColor.Red;
             Console.Write($"{power_attack}");
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            if (crit == 3)
+            {
+                Console.Write(" critical");
+            }
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.Write($" damage and the opponent has ");
             Console.ForegroundColor = ConsoleColor.Green;
