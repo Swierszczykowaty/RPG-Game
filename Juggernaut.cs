@@ -6,20 +6,20 @@ using System.Threading.Tasks;
 
 namespace RPG_warrior_expanded
 {
-    public class Warrior : Hero
+    internal class Juggernaut :Hero
     {
-        public Warrior(string type, string name, int health, int strength) : base(type, name, health, strength)
+        public Juggernaut(string type,string name, int health, int strength) : base(type, name, health, strength)
         {
         }
-        public static Warrior GenerateRandomWarrior()
+        public static Juggernaut GenerateRandomWarrior()
         {
             Random random = new();
-            string type = "Warrior";
+            string type = "Juggernaut";
             string randomName = Names[random.Next(Names.Length)];
-            int randomHealth = random.Next(60, 121);
-            int randomStrength = random.Next(20, 41);
-
-            return new Warrior(type, randomName, randomHealth, randomStrength);
+            int randomHealth = random.Next(80, 141);
+            int randomStrength = random.Next(10, 26);
+             
+            return new Juggernaut(type, randomName, randomHealth, randomStrength);
         }
         public override void Duel(Hero opponent)
         {

@@ -11,10 +11,10 @@ namespace RPG_warrior_expanded
         static void Main(string[] args)
         {
             Warrior warrior1 = Warrior.GenerateRandomWarrior();
-            Warrior warrior2;
+            Juggernaut warrior2;
             do
             {
-                warrior2 = Warrior.GenerateRandomWarrior();
+                warrior2 = Juggernaut.GenerateRandomWarrior();
             } while (warrior2.Name.Equals(warrior1.Name));
             warrior1.Duel(warrior2);
 

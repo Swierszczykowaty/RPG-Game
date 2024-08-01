@@ -11,7 +11,7 @@ namespace RPG_warrior_expanded
         private int mana;
         readonly Random random = new();
 
-        public Wizard(string name, int health, int strength, int mana) : base(name, health, strength)
+        public Wizard(string type, string name, int health, int strength, int mana) : base(type, name, health, strength)
         {
             this.mana = mana;
         }
@@ -19,12 +19,13 @@ namespace RPG_warrior_expanded
         public static Wizard GenerateRandomWizard()
         {
             Random random = new();
+            string type = "Wizard";
             string randomName = Names[random.Next(Names.Length)];
             int randomHealth = random.Next(50, 91);
             int randomStrength = random.Next(10, 26);
             int randomMana = random.Next(30, 51);
 
-            return new Wizard(randomName, randomHealth, randomStrength, randomMana);
+            return new Wizard(type, randomName, randomHealth, randomStrength, randomMana);
         }
         public override void Attack(Hero opponent)
         {

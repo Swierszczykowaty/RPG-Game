@@ -8,13 +8,15 @@ namespace RPG_warrior_expanded
 {
     public abstract class Hero
     {
-        protected static readonly string[] Names = { "El Roman", "Lord Michael", "Ignatius The Strong", "Gretel The Wise", "Jacob The Summoner", "Matthew The Honest", "King Arthur I", "Sir Christopher ", "Great Knight Robin", "Princess Zoozee", "Royal Prince Wilson" };
+        protected string type;
+        protected static readonly string[] Names = {"El Roman", "Lord Michael", "Ignatius The Strong", "Gretel The Wise", "Jacob The Summoner", "Matthew The Honest", "King Arthur I", "Sir Christopher", "Great Knight Robin", "Princess Zoozee", "Royal Prince Wilson" };
         protected string name;
         protected int health;
         protected int strength;
         readonly Random random = new();
-        public Hero(string name, int health, int strength)
+        public Hero(string type, string name, int health, int strength)
         {
+            this.type = type;
             this.name = name;
             this.health = health;
             this.strength = strength;
@@ -44,8 +46,10 @@ namespace RPG_warrior_expanded
                 opponent.health = 0;
             }
             Thread.Sleep(700);
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.Write($"{type}");
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.Write($"Warrior {name} attacks for ");
+            Console.Write($" {name} attacks for ");
             Console.ForegroundColor = ConsoleColor.Red;
             Console.Write($"{power_attack}");
             Console.ForegroundColor = ConsoleColor.DarkRed;
