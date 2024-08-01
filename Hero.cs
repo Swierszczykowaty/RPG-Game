@@ -13,17 +13,35 @@ namespace RPG_warrior_expanded
         protected string name;
         protected int health;
         protected int strength;
+        public int wins;
+        public bool winner = false;
+        public bool loser = false;
         readonly Random random = new();
-        public Hero(string type, string name, int health, int strength)
+        public Hero(string type, string name, int health, int strength, int wins, bool winner, bool loser)
         {
             this.type = type;
             this.name = name;
             this.health = health;
             this.strength = strength;
+            this.wins = wins;
+            this.winner = winner;
+            this.loser = loser;
         }
+        public string Type => type;
         public string Name => name;
         public int Health => health;
         public int Strength => strength;
+        public int Wins => wins;
+        public bool Winner => winner;
+        public bool Loser => loser;
+        public void SetWinner(bool winner)
+        {
+            this.winner = false;
+        }
+        public void SetLoser(bool loser)
+        {
+            this.loser = false;
+        }
         public void Damage(int power_attack)
         {
             this.health -= power_attack;
@@ -45,7 +63,7 @@ namespace RPG_warrior_expanded
             {
                 opponent.health = 0;
             }
-            Thread.Sleep(700);
+            Thread.Sleep(100);
             Console.ForegroundColor = ConsoleColor.DarkCyan;
             Console.Write($"{type}");
             Console.ForegroundColor = ConsoleColor.Yellow;

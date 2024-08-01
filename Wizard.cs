@@ -11,7 +11,7 @@ namespace RPG_warrior_expanded
         private int mana;
         readonly Random random = new();
 
-        public Wizard(string type, string name, int health, int strength, int mana) : base(type, name, health, strength)
+        public Wizard(string type, string name, int health, int strength, int mana, int wins, bool winner, bool loser) : base(type, name, health, strength, wins, winner, loser)
         {
             this.mana = mana;
         }
@@ -24,8 +24,10 @@ namespace RPG_warrior_expanded
             int randomHealth = random.Next(50, 91);
             int randomStrength = random.Next(10, 26);
             int randomMana = random.Next(30, 51);
-
-            return new Wizard(type, randomName, randomHealth, randomStrength, randomMana);
+            int wins = 0;
+            bool winner = false;
+            bool loser = false;
+            return new Wizard(type, randomName, randomHealth, randomStrength, randomMana, wins, winner, loser);
         }
         public override void Attack(Hero opponent)
         {
@@ -63,7 +65,7 @@ namespace RPG_warrior_expanded
         {
             //info o duel
             Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine($"========= Battle between {this.name} and {opponent.Name}! =========\n");
+            Console.WriteLine($"========= Battle between {this.type} {this.name} and {opponent.Type} {opponent.Name}! =========\n");
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine($"{this.name} have {this.health} health, {this.strength} strength and {this.mana} mana.");
             Console.WriteLine($"{opponent.Name} have {opponent.Health} health, {opponent.Strength} strength\n");
@@ -83,15 +85,17 @@ namespace RPG_warrior_expanded
             }
             if (this.IsAlive())
             {
+                this.winner = true;
+                wins++;
                 Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine($"\n========= Winner is {this.name} with {this.health} health =========");
-                Console.ForegroundColor = ConsoleColor.Black;
             }
             else if (opponent.IsAlive())
-            {
+            {   
+                opponent.winner = true;
+                wins++;
                 Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine($"\n========= Winner is {opponent.Name} with {opponent.Health} health =========");
-                Console.ForegroundColor = ConsoleColor.Black;
             }
             else
             {

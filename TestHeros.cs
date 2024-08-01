@@ -10,21 +10,21 @@ namespace RPG_warrior_expanded
     {
         static void Main(string[] args)
         {
+            
             Warrior warrior1 = Warrior.GenerateRandomWarrior();
             Juggernaut warrior2;
             do
             {
-                warrior2 = Juggernaut.GenerateRandomWarrior();
+                warrior2 = Juggernaut.GenerateRandomJuggernaut();
             } while (warrior2.Name.Equals(warrior1.Name));
-            warrior1.Duel(warrior2);
+            do
+            {
+                warrior1.Duel(warrior2);
+            } while (warrior1.Wins != 10 && warrior2.Wins != 10);
 
-            //Warrior warrior1 = Warrior.GenerateRandomWarrior();
-            //Wizard wiz2;
-            //do
-            //{
-            //    wiz2 = Wizard.GenerateRandomWizard();
-            //} while (wiz2.Name.Equals(warrior1.Name));
-            //wiz2.Duel(warrior1);
+            Console.WriteLine(warrior1.Wins);
+            Console.WriteLine(warrior2.Wins);
+            Console.ForegroundColor = ConsoleColor.Black;
         }
     }
 }
