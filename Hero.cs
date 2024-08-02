@@ -54,26 +54,46 @@ namespace RPG_warrior_expanded
         public virtual void Attack(Hero opponent)
         {
             int power_attack = random.Next(strength/2, strength); // this.strengt
-            int crit = random.Next(1, 5);
-            if (crit == 3) {
+            bool crittrue = false;
+            bool blocktrue = false;
+            int crit = random.Next(1, 101);
+            if (crit < 10) {
+                crittrue = true;
                 power_attack *= 2;
             }
-            opponent.health -= power_attack;
+            int block = random.Next(1, 101);
+            if (block < 5) {
+                blocktrue= true;
+            }
+            else{
+                opponent.health -= power_attack;
+            }
             if (opponent.health < 0 )
             {
                 opponent.health = 0;
             }
-            Thread.Sleep(100);
+            //Thread.Sleep(50);
             Console.ForegroundColor = ConsoleColor.DarkCyan;
             Console.Write($"{type}");
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.Write($" {name} attacks for ");
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.Write($"{power_attack}");
-            Console.ForegroundColor = ConsoleColor.DarkRed;
-            if (crit == 3)
+            if (blocktrue == false)
             {
-                Console.Write(" critical");
+                Console.Write($"{power_attack}");
+            }
+            else
+            {
+                Console.Write("0");
+            }
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            if (crittrue == true && blocktrue == false)
+            {
+                Console.Write(" [CRITICAL]");
+            }
+            if (blocktrue== true)
+            {
+                Console.Write(" [BLOCK]");
             }
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.Write($" damage and the opponent has ");
