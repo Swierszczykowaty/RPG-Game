@@ -31,6 +31,7 @@ namespace RPG_warrior_expanded
                 Console.WriteLine($"Warrior: {win1}"); 
                 Console.WriteLine($"Juggernaut: {win2}");
             } while (win1 != 1000 && win2 != 1000);
+
             Console.ForegroundColor = ConsoleColor.Black;
         }
     }
