@@ -18,7 +18,7 @@ namespace RPG_warrior_expanded
             string type = "Juggernaut";
             string randomName = Names[random.Next(Names.Length)];
             int randomHealth = random.Next(120, 151);
-            int randomStrength = random.Next(15, 31);
+            int randomStrength = random.Next(14, 30);
             int wins = 0;
             bool winner = false;
             bool loser = false;

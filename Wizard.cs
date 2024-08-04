@@ -9,11 +9,13 @@ namespace RPG_warrior_expanded
     public class Wizard : Hero, Magic
     {
         private int mana;
+        private int magicStrenght;
         readonly Random random = new();
 
-        public Wizard(string type, string name, int health, int strength, int mana, int wins, bool winner, bool loser) : base(type, name, health, strength, wins, winner, loser)
+        public Wizard(string type, string name, int health, int strength, int mana, int magicStrenght,int wins, bool winner, bool loser) : base(type, name, health, strength, wins, winner, loser)
         {
             this.mana = mana;
+            this.magicStrenght = magicStrenght;
         }
 
         public static Wizard GenerateRandomWizard()
@@ -24,10 +26,11 @@ namespace RPG_warrior_expanded
             int randomHealth = random.Next(50, 91);
             int randomStrength = random.Next(10, 26);
             int randomMana = random.Next(30, 51);
+            int randomMagicStrenght = random.Next(50, 80);
             int wins = 0;
             bool winner = false;
             bool loser = false;
-            return new Wizard(type, randomName, randomHealth, randomStrength, randomMana, wins, winner, loser);
+            return new Wizard(type, randomName, randomHealth, randomStrength, randomMana, randomMagicStrenght, wins, winner, loser);
         }
         public override void Attack(Hero opponent)
         {
