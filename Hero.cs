@@ -8,10 +8,10 @@ namespace RPG_warrior_expanded
 {
     public abstract class Hero
     {
-        protected string type;
-        protected static readonly string[] Names = {"El Roman", "Lord Michael", "Ignatius The Strong", "Gretel The Wise", "Jacob The Summoner", "Matthew The Honest", "King Arthur I", "Sir Christopher", "Great Knight Robin", "Princess Zoozee", "Royal Prince Wilson" };
+        public string type;
+        protected static readonly string[] Names = {"El Roman", "Lord Michael", "Ignatius The Strong", "Gretel The Wise", "Jacob The Summoner", "Matthew The Honest", "King Arthur I", "Sir Christopher", "Great Knight Robin", "Princess Diana", "Royal Prince Wilson" };
         protected string name;
-        protected int health;
+        public int health;
         protected int strength;
         public int wins;
         public bool winner = false;
@@ -72,7 +72,7 @@ namespace RPG_warrior_expanded
             {
                 opponent.health = 0;
             }
-            //Thread.Sleep(50);
+            //Thread.Sleep(500);
             Console.ForegroundColor = ConsoleColor.DarkCyan;
             Console.Write($"{type}");
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -101,7 +101,6 @@ namespace RPG_warrior_expanded
             Console.Write($"{opponent.health}");
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.Write($" health left.\n");
-            //miss 5%
         }
         public abstract void Duel(Hero opponent);
     }
