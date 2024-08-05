@@ -17,21 +17,21 @@ namespace RPG_warrior_expanded
             Wizard warrior3;
             do
             {
-                warrior1 = Warrior.GenerateRandomWarrior();
+                warrior2 = Juggernaut.GenerateRandomJuggernaut();
                 do
                 {
                     warrior3 = Wizard.GenerateRandomWizard();
-                } while (warrior3.Name.Equals(warrior1.Name));
-                warrior1.Duel(warrior3);
-                if (warrior1.Wins == 1){ //class test
+                } while (warrior3.Name.Equals(warrior2.Name));
+                warrior2.Duel(warrior3);
+                if (warrior2.Wins == 1){ //class test
                     win1++;
                 }
                 else{
                     win2++;
                 }
-                Console.WriteLine($"{warrior1.type}: {win1}"); 
+                Console.WriteLine($"{warrior2.type}: {win1}"); 
                 Console.WriteLine($"{warrior3.type}: {win2}");
-            } while (win1 != 100 && win2 != 100);
+            } while (win1 != 1000 && win2 != 1000);
 
             Console.ForegroundColor = ConsoleColor.Black;
         }

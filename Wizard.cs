@@ -26,10 +26,10 @@ namespace RPG_warrior_expanded
             string type = "Wizard";
             string randomName = Names[random.Next(Names.Length)];
             int randomHealth = random.Next(60, 91);
-            int randomStrength = random.Next(10, 26);
+            int randomStrength = random.Next(10, 36);
             int startmana = 0;
-            int randomMana = random.Next(40, 50);
-            int randomMagicStrenght = random.Next(60, 120);
+            int randomMana = random.Next(80, 100);
+            int randomMagicStrenght = random.Next(90, 121);
             int wins = 0;
             bool winner = false;
             bool loser = false;
@@ -67,7 +67,6 @@ namespace RPG_warrior_expanded
             else
             {
                 opponent.health -= power_attack;
-                Console.Write($"AAAAAAA{this.startmana}");
                 this.startmana += random.Next(mana / 2, mana);
                 if (this.startmana > 100)
                 {
