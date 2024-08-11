@@ -13,7 +13,9 @@ namespace RPG_warrior_expanded
             int win1 = 0; //class test
             int win2 = 0;
             int win3 = 0;
-            int goalwin = 100;
+            int goalwin = 10000;
+            
+
             Warrior warrior1;
             Juggernaut warrior2;
             Wizard warrior3;
@@ -22,15 +24,17 @@ namespace RPG_warrior_expanded
                 warrior1 = Warrior.GenerateRandomWarrior();
                 warrior2 = Juggernaut.GenerateRandomJuggernaut();
                 warrior3 = Wizard.GenerateRandomWizard();
-                //******* names bug fix **********
-                //do
-                //{
-                //    warrior3 = Wizard.GenerateRandomWizard();
-                //} while (warrior3.Name.Equals(warrior2.Name));
-                //********************************
+
+                if (new Random().Next(0,2) == 0)
+                {
+                    warrior2.Duel(warrior3);
+                }
+                else
+                {
+                    warrior3.Duel(warrior2);
+                }
                 //warrior1.Duel(warrior2);
                 //warrior2.Duel(warrior3);
-                warrior2.Duel(warrior3);
                 // ********** class test **********
                 if (warrior1.Wins == 1){ 
                     win1++;
@@ -38,8 +42,7 @@ namespace RPG_warrior_expanded
                 else if(warrior2.Wins == 1){
                     win2++;
                 }
-                else
-                {
+                else{
                     win3++;
                 }
                 Console.WriteLine();
@@ -52,3 +55,10 @@ namespace RPG_warrior_expanded
         }
     }
 }
+
+//******* names bug fix **********
+//do
+//{
+//    warrior3 = Wizard.GenerateRandomWizard();
+//} while (warrior3.Name.Equals(warrior2.Name));
+//********************************
