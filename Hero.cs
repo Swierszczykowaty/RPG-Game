@@ -46,10 +46,7 @@ namespace RPG_warrior_expanded
         {
             this.health -= power_attack;
         }
-        public void ZeroHealth()
-        {
-            this.health = 0;
-        }
+
         public bool IsAlive() => health > 0;
         public virtual void Attack(Hero opponent)
         {
@@ -102,6 +99,45 @@ namespace RPG_warrior_expanded
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.Write($" health left.\n");
         }
-        public abstract void Duel(Hero opponent);
+        public virtual void Duel(Hero opponent)
+        {
+            this.winner = false;
+            this.loser = false;
+            SetWinner(opponent.Winner);
+            SetLoser(opponent.Loser);
+
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine($"========= Battle between {this.type} {this.name} and {opponent.Type} {opponent.Name}! =========\n");
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine($"{this.name} have {this.health} health and {this.strength} strength.");
+            Console.WriteLine($"{opponent.Name} have {opponent.Health} health and {opponent.Strength} strength.\n");
+
+            while (this.IsAlive() && opponent.IsAlive())
+            {
+                this.Attack(opponent);
+                if (opponent.IsAlive())
+                {
+                    opponent.Attack(this);
+                }
+            }
+            if (this.IsAlive())
+            {
+                this.winner = true;
+                this.wins++;
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine($"\n========= Winner is {this.type} {this.name} with {this.health} health =========");
+            }
+            else if (opponent.IsAlive())
+            {
+                opponent.winner = true;
+                opponent.wins++;
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine($"\n========= Winner is {opponent.Type} {opponent.Name} with {opponent.Health} health =========");
+            }
+            else
+            {
+                Console.WriteLine("Both dead, gg, tie");
+            }
+        }
     }
 }
