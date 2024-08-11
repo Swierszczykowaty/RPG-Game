@@ -30,7 +30,7 @@ namespace RPG_warrior_expanded
                 //********************************
                 //warrior1.Duel(warrior2);
                 //warrior2.Duel(warrior3);
-                warrior3.Duel(warrior2);
+                warrior2.Duel(warrior3);
                 // ********** class test **********
                 if (warrior1.Wins == 1){ 
                     win1++;

@@ -50,7 +50,7 @@ namespace RPG_warrior_expanded
         public bool IsAlive() => health > 0;
         public virtual void Attack(Hero opponent)
         {
-            int power_attack = random.Next(strength/2, strength); // this.strengt
+            int power_attack = random.Next(strength/2, strength);
             bool crittrue = false;
             bool blocktrue = false;
             int crit = random.Next(1, 101);

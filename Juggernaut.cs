@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace RPG_warrior_expanded
 {
-    internal class Juggernaut :Hero
+    public class Juggernaut :Hero
     {
         public Juggernaut(string type,string name, int health, int strength, int wins, bool winner, bool loser) : base(type, name, health, strength, wins, winner, loser)
         {

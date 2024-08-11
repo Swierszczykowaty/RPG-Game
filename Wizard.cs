@@ -81,24 +81,29 @@ namespace RPG_warrior_expanded
             Console.ForegroundColor = ConsoleColor.DarkCyan;
             Console.Write($"{type}");
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.Write($" {name} attacks for ");
-            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write($" {name}");
             if (blocktrue == false)
             {
                 if (magictrue == true)
                 {
-                    Console.Write($"{magic_attack}");
+                    Console.Write($" casts a spell for");
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.Write($" {magic_attack}");
                     Console.ForegroundColor = ConsoleColor.Cyan;
                     Console.Write($" magic damage");
                 }
                 else 
                 {
-                    Console.Write($"{power_attack}");
+                    Console.Write($" attacks for");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.Write($" {power_attack}");
                 }
             }
             else
             {
-                Console.Write("0");
+                Console.Write(" attacks for");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.Write(" 0");
             }
             Console.ForegroundColor = ConsoleColor.DarkRed;
             if (crittrue == true && blocktrue == false)
@@ -117,27 +122,6 @@ namespace RPG_warrior_expanded
             Console.Write($" health left.");
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.Write($" Wizard mana is {this.startmana}.\n");
-        }
-        public void MagicAttack(Hero opponent)
-        {
-            int power_attack = random.Next(mana / 2, mana); // this.strengt
-            int crit = random.Next(1, 5);
-            if (crit == 3)
-            {
-                power_attack *= 2;
-            }
-            opponent.Damage(power_attack);
-            //Thread.Sleep(700);
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.Write($"Wizard {name} casts a spell for ");
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.Write($"{power_attack}");
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.Write($" damage and the opponent has ");
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.Write($"{opponent.Health}");
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.Write($" health left.\n");
         }
     }
 }
