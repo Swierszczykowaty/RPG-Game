@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace RPG_warrior_expanded
 {
@@ -14,7 +15,13 @@ namespace RPG_warrior_expanded
             int win2 = 0;
             int win3 = 0;
             int goalwin = 10000;
-            
+
+            // Create an instance of the form
+            Form guiForm = new Form();
+            guiForm.Text = "RPG Warrior Expanded";
+
+            // Show the form
+            Application.Run(guiForm);
 
             Warrior warrior1;
             Juggernaut warrior2;
