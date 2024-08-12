@@ -27,6 +27,12 @@ namespace RPG_warrior_expanded
             this.winner = winner;
             this.loser = loser;
         }
+        static void WaitForEnter()
+        {
+            while (Console.ReadKey(true).Key != ConsoleKey.Enter)
+            {
+            }
+        }
         public string Type => type;
         public string Name => name;
         public int Health => health;
@@ -69,7 +75,7 @@ namespace RPG_warrior_expanded
             {
                 opponent.health = 0;
             }
-            //Thread.Sleep(500);
+            Thread.Sleep(800);
             Console.ForegroundColor = ConsoleColor.DarkCyan;
             Console.Write($"{type}");
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -99,19 +105,23 @@ namespace RPG_warrior_expanded
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.Write($" health left.\n");
         }
-        public virtual void Duel(Hero opponent)
+        public virtual void Duel(Hero opponent, ref int battleCounter)
         {
             this.winner = false;
             this.loser = false;
             SetWinner(opponent.Winner);
             SetLoser(opponent.Loser);
-
-            Console.ForegroundColor = ConsoleColor.DarkGray;
-            Console.WriteLine($"========= Battle between {this.type} {this.name} and {opponent.Type} {opponent.Name}! =========\n");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine($"========= Battle number {battleCounter} between {this.type} {this.name} and {opponent.Type} {opponent.Name}! =========\n");
+            Thread.Sleep(500);
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine($"{this.name} have {this.health} health and {this.strength} strength.");
             Console.WriteLine($"{opponent.Name} have {opponent.Health} health and {opponent.Strength} strength.\n");
-
+            Thread.Sleep(500);
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Press enter to start battle!");
+            WaitForEnter();
+            Console.WriteLine();
             while (this.IsAlive() && opponent.IsAlive())
             {
                 this.Attack(opponent);
@@ -120,12 +130,14 @@ namespace RPG_warrior_expanded
                     opponent.Attack(this);
                 }
             }
+            Thread.Sleep(500);
             if (this.IsAlive())
             {
                 this.winner = true;
                 this.wins++;
                 Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine($"\n========= Winner is {this.type} {this.name} with {this.health} health =========");
+                Thread.Sleep(1000);
             }
             else if (opponent.IsAlive())
             {
@@ -133,6 +145,7 @@ namespace RPG_warrior_expanded
                 opponent.wins++;
                 Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine($"\n========= Winner is {opponent.Type} {opponent.Name} with {opponent.Health} health =========");
+                Thread.Sleep(1000);
             }
             else
             {

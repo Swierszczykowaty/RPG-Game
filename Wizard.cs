@@ -77,7 +77,7 @@ namespace RPG_warrior_expanded
             {
                 opponent.health = 0;
             }
-            //Thread.Sleep(500);
+            Thread.Sleep(800);
             Console.ForegroundColor = ConsoleColor.DarkCyan;
             Console.Write($"{type}");
             Console.ForegroundColor = ConsoleColor.Yellow;
