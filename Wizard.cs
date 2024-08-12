@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace RPG_warrior_expanded
+﻿namespace RPG_warrior_expanded
 {
     public class Wizard : Hero
     {
@@ -13,7 +7,7 @@ namespace RPG_warrior_expanded
         private readonly int magicStrenght;
         readonly Random random = new();
 
-        public Wizard(string type, string name, int health, int strength, int startmana, int mana, int magicStrenght,int wins, bool winner, bool loser) : base(type, name, health, strength, wins, winner, loser)
+        public Wizard(string type, string name, int health, int strength, int startmana, int mana, int magicStrenght, int wins, bool winner, bool loser) : base(type, name, health, strength, wins, winner, loser)
         {
             this.startmana = startmana;
             this.mana = mana;
@@ -38,7 +32,7 @@ namespace RPG_warrior_expanded
         public override void Attack(Hero opponent)
         {
             int magic_attack = random.Next(magicStrenght / 2, magicStrenght);
-            int power_attack = random.Next(strength / 2, strength); 
+            int power_attack = random.Next(strength / 2, strength);
             bool crittrue = false;
             bool blocktrue = false;
             bool magictrue = false;
@@ -47,22 +41,22 @@ namespace RPG_warrior_expanded
             {
                 crittrue = true;
                 power_attack *= 2;
-                magic_attack*= 2;
+                magic_attack *= 2;
             }
             int block = random.Next(1, 101);
             if (block < 5)
             {
                 blocktrue = true;
-                if(this.startmana == 100)
+                if (this.startmana == 100)
                 {
                     this.startmana = 0;
                 }
             }
-            else if(this.startmana == 100)
+            else if (this.startmana == 100)
             {
                 opponent.health -= magic_attack;
                 this.startmana = 0;
-                magictrue= true;
+                magictrue = true;
             }
             else
             {
@@ -92,7 +86,7 @@ namespace RPG_warrior_expanded
                     Console.ForegroundColor = ConsoleColor.Cyan;
                     Console.Write($" magic damage");
                 }
-                else 
+                else
                 {
                     Console.Write($" attacks for");
                     Console.ForegroundColor = ConsoleColor.Red;

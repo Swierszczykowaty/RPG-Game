@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace RPG_warrior_expanded
+﻿namespace RPG_warrior_expanded
 {
     public abstract class Hero
     {
         public string type;
-        protected static readonly string[] Names = {"El Roman", "Lord Michael", "Ignatius The Strong", "Gretel The Wise", "Jacob The Summoner", "Matthew The Honest", "King Arthur I", "Sir Christopher", "Great Knight Robin", "Princess Diana", "Royal Prince Wilson" };
+        protected static readonly string[] Names = { "El Roman", "Lord Michael", "Ignatius The Strong", "Gretel The Wise", "Jacob The Summoner", "Matthew The Honest", "King Arthur I", "Sir Christopher", "Great Knight Robin", "Princess Diana", "Royal Prince Wilson" };
         protected string name;
         public int health;
         protected int strength;
@@ -56,22 +50,25 @@ namespace RPG_warrior_expanded
         public bool IsAlive() => health > 0;
         public virtual void Attack(Hero opponent)
         {
-            int power_attack = random.Next(strength/2, strength);
+            int power_attack = random.Next(strength / 2, strength);
             bool crittrue = false;
             bool blocktrue = false;
             int crit = random.Next(1, 101);
-            if (crit < 10) {
+            if (crit < 10)
+            {
                 crittrue = true;
                 power_attack *= 2;
             }
             int block = random.Next(1, 101);
-            if (block < 5) {
-                blocktrue= true;
+            if (block < 5)
+            {
+                blocktrue = true;
             }
-            else{
+            else
+            {
                 opponent.health -= power_attack;
             }
-            if (opponent.health < 0 )
+            if (opponent.health < 0)
             {
                 opponent.health = 0;
             }
@@ -94,7 +91,7 @@ namespace RPG_warrior_expanded
             {
                 Console.Write(" [CRITICAL]");
             }
-            if (blocktrue== true)
+            if (blocktrue == true)
             {
                 Console.Write(" [BLOCK]");
             }

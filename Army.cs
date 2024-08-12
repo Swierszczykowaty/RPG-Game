@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace RPG_warrior_expanded
+﻿namespace RPG_warrior_expanded
 {
     internal class Army
     {
@@ -26,7 +20,7 @@ namespace RPG_warrior_expanded
                 if (i % 2 == 1)
                 {
                     army.myArmy[i] = Warrior.GenerateRandomWarrior();
-                }   
+                }
                 else
                 {
                     army.myArmy[i] = Wizard.GenerateRandomWizard();

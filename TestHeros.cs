@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace RPG_warrior_expanded
+﻿namespace RPG_warrior_expanded
 {
     internal class TestHeros
     {
@@ -37,7 +31,7 @@ namespace RPG_warrior_expanded
                     Console.ForegroundColor = ConsoleColor.DarkMagenta;
                     Console.WriteLine($"You have chosen a game to {goalwin} wins.");
                     Console.WriteLine();
-                    break; 
+                    break;
                 }
                 else
                 {
@@ -109,7 +103,8 @@ namespace RPG_warrior_expanded
             if (winPlayer == goalwin)
             {
                 Console.WriteLine($"The winner is your {player.Type}!");
-            } else
+            }
+            else
             {
                 Console.WriteLine($"The winner is the opponent forces!");
             }
