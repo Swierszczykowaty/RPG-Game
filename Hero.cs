@@ -107,6 +107,10 @@ namespace RPG_warrior_expanded
         }
         public virtual void Duel(Hero opponent, ref int battleCounter)
         {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Press enter to start battle!");
+            WaitForEnter();
+            Console.WriteLine();
             this.winner = false;
             this.loser = false;
             SetWinner(opponent.Winner);
@@ -115,13 +119,9 @@ namespace RPG_warrior_expanded
             Console.WriteLine($"========= Battle number {battleCounter} between {this.type} {this.name} and {opponent.Type} {opponent.Name}! =========\n");
             Thread.Sleep(500);
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine($"{this.name} have {this.health} health and {this.strength} strength.");
-            Console.WriteLine($"{opponent.Name} have {opponent.Health} health and {opponent.Strength} strength.\n");
+            Console.WriteLine($"{this.type} {this.name} have {this.health} health and {this.strength} strength.");
+            Console.WriteLine($"{opponent.type} {opponent.Name} have {opponent.Health} health and {opponent.Strength} strength.\n");
             Thread.Sleep(500);
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("Press enter to start battle!");
-            WaitForEnter();
-            Console.WriteLine();
             while (this.IsAlive() && opponent.IsAlive())
             {
                 this.Attack(opponent);

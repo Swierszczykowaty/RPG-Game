@@ -18,11 +18,11 @@ namespace RPG_warrior_expanded
             Console.ForegroundColor = ConsoleColor.DarkMagenta;
             Console.WriteLine("Choose your class (number 1 - 3):");
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("1. Warrior");
+            Console.WriteLine("1. Warrior - Well trained solider.");
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("2. Juggernaut");
+            Console.WriteLine("2. Juggernaut - More Health, less attack damage.");
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("3. Wizard");
+            Console.WriteLine("3. Wizard - Less health and attack damage, but can cast magic spells.");
             Console.ForegroundColor = ConsoleColor.DarkGray;
             playerChoice = Console.ReadLine();
             Console.ForegroundColor = ConsoleColor.DarkMagenta;
@@ -108,10 +108,10 @@ namespace RPG_warrior_expanded
             Console.ForegroundColor = ConsoleColor.Red;
             if (winPlayer == goalwin)
             {
-                Console.WriteLine($"The winner is {player.Type}!");
+                Console.WriteLine($"The winner is your {player.Type}!");
             } else
             {
-                Console.WriteLine($"The winner is {opponent.Type}!");
+                Console.WriteLine($"The winner is the opponent forces!");
             }
             Console.ForegroundColor = ConsoleColor.Black;
         }
